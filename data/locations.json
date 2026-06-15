@@ -12,15 +12,15 @@
     "tags": ["compras", "tesoro", "botín", "arcano"]
   },
   {
-    "id": "el-traspatio-de-valrakt",
-    "nickname": "El Traspatio de Valrakt",
-    "realName": "Pregunta a Valrakt",
-    "address": "Cerrada Retorno 42, Colonia Avante, Coyoacán, 04460, Ciudad de México",
-    "coordinates": { "lat": 19.32887, "lng": -99.135345 },
+    "id": "la-trastienda-de-varlakt",
+    "nickname": "La Trastienda de Varlakt",
+    "realName": "Pregunta a Varlakt",
+    "address": "Cerrada Retorno 45, Colonia Avante, Coyoacán, 04460, Ciudad de México",
+    "coordinates": { "lat": 19.327587, "lng": -99.133606 },
     "category": "mercado",
-    "image": "images/el-traspatio-de-valrakt.svg",
-    "imageAlt": "El traspatio de un brujo, repleto de objetos mágicos, frascos brillantes y reliquias arcanas",
-    "lore": "Valrakt, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
+    "image": "images/la-trastienda-de-varlakt.svg",
+    "imageAlt": "La trastienda de un brujo, repleta de objetos mágicos, frascos brillantes y reliquias arcanas",
+    "lore": "Varlakt, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
     "tags": ["compras", "objetos-mágicos", "arcano"]
   },
   {
@@ -46,5 +46,17 @@
     "imageAlt": "Un templo antiguo de piedra custodiado por cuatro bestias talladas en sus columnas",
     "lore": "Un santuario olvidado donde cuatro bestias guardianas vigilan cada rincón. Solo los más audaces cruzan sus umbrales en busca de las reliquias que ocultan sus cámaras.",
     "tags": ["mazmorra", "desafío", "reliquias"]
+  },
+  {
+    "id": "el-conclave-de-tierra-y-ecos",
+    "nickname": "El Cónclave de Tierra y Ecos",
+    "realName": "Pregunta al DM",
+    "address": "Colonia Las Cabañas, Coapa, Coyoacán, 04899, Ciudad de México",
+    "coordinates": { "lat": 19.3081, "lng": -99.125848 },
+    "category": "santuario",
+    "image": "images/el-conclave-de-tierra-y-ecos.svg",
+    "imageAlt": "El santuario de un geomante: instrumentos de piedra que escuchan la tierra y ecos arcanos que serpentean en el aire",
+    "lore": "La morada del geomante, que sondea el subsuelo y, con esos mismos ecos, invoca a los espíritus dormidos en la roca para consultarles cualquier pregunta. Entre temblor y susurro, aquí se descifra lo que la tierra y las voces ocultan.",
+    "tags": ["hogar", "geomancia", "ecos", "espíritus"]
   }
 ]
