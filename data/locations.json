@@ -22,5 +22,17 @@
     "imageAlt": "El traspatio de un brujo, repleto de objetos mágicos, frascos brillantes y reliquias arcanas",
     "lore": "Valrakt, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
     "tags": ["compras", "objetos-mágicos", "arcano"]
+  },
+  {
+    "id": "la-comarca",
+    "nickname": "La Comarca",
+    "realName": "Pregunta al DM",
+    "address": "Avenida Copilco 162, Copilco, Coyoacán, 04359, Ciudad de México",
+    "coordinates": { "lat": 19.337993, "lng": -99.186213 },
+    "category": "aldea",
+    "image": "images/la-comarca.svg",
+    "imageAlt": "Una comarca apacible de colinas verdes y puertas redondas entre jardines",
+    "lore": "Una comarca apacible de colinas verdes y puertas redondas, donde la mayor hazaña del día es decidir qué hornear. Aquí el grupo descansa y celebra entre aventuras.",
+    "tags": ["hogar", "descanso", "comida"]
   }
 ]
