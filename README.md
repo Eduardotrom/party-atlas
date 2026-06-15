@@ -1,91 +1,141 @@
-# El Atlas del Grupo
+# The Party Atlas (El Atlas del Grupo)
 
-Una página web sencilla, rápida y con mucha imagen que lista los lugares reales de
-nuestro grupo de D&D —cada uno con su **apodo de fantasía**— como una galería de
-tarjetas, con un mapa interactivo opcional.
+A simple, fast, image-led webpage that lists our D&D party's real-world haunts —
+each given a **fantasy nickname** — as a gallery of cards, with an optional
+interactive map and one-tap navigation links (Google Maps / Waze / Uber).
 
-Sin paso de compilación, sin framework. Solo HTML, CSS y un poco de JavaScript.
+No build step, no framework. Just HTML, CSS, and a little vanilla JavaScript.
 
-## Ejecutarlo localmente
+> **Note on language:** the *site content* (location names, lore) is in **Spanish**
+> because it's for the party. This documentation is in **English** for maintenance.
 
-La página carga sus datos con `fetch()`, lo que los navegadores bloquean en URLs
-`file://`, así que ábrela a través de un pequeño servidor local en lugar de hacer
-doble clic en `index.html`:
+- **Live site:** https://eduardotrom.github.io/party-atlas/
+- **Repo:** https://github.com/Eduardotrom/party-atlas
+
+## Run it locally
+
+The page loads its data with `fetch()`, which browsers block on `file://` URLs, so
+open it through a tiny local server rather than double-clicking `index.html`:
 
 ```bash
-# desde esta carpeta
+# from this folder
 python3 -m http.server 8000
-# luego abre http://localhost:8000 en tu navegador
+# then open http://localhost:8000
 ```
 
-(Cualquier servidor estático sirve — por ejemplo `npx serve` si prefieres Node.)
+(Any static server works — e.g. `npx serve`.)
 
-## Añadir o editar ubicaciones
+## Add or edit locations
 
-Todo vive en **`data/locations.json`**. Añade un objeto al arreglo:
+Everything lives in **`data/locations.json`** — an array of location objects. Add an
+entry and the gallery/map pick it up automatically (entries are **sorted
+alphabetically** by nickname at render time, ignoring leading articles El/La/Los/Las).
 
 ```json
 {
-  "id": "la-jarra-alegre",
-  "nickname": "La Jarra Alegre",
-  "realName": "Casa de Miguel",
-  "address": "Av. Siempreviva 742, Springfield",
-  "coordinates": { "lat": 40.7128, "lng": -74.006 },
-  "category": "taberna",
-  "image": "images/la-jarra-alegre.svg",
-  "imageAlt": "Descripción breve de la imagen para lectores de pantalla",
-  "lore": "Una descripción con sabor a fantasía.",
-  "tags": ["punto-de-encuentro", "comida"]
+  "id": "la-boveda-del-goblin",
+  "nickname": "La Bóveda del Goblin",
+  "realName": "Pregunta al DM",
+  "address": "Los Jardines de Coyoacán, Coyoacán, 04890, Ciudad de México",
+  "coordinates": { "lat": 19.3133, "lng": -99.124061 },
+  "category": "bóveda",
+  "image": "images/la-boveda-del-goblin.svg",
+  "imageAlt": "Short description of the image for screen readers",
+  "lore": "Flavorful in-world description.",
+  "tags": ["compras", "tesoro"]
 }
 ```
 
-| Campo         | ¿Obligatorio? | Notas                                                          |
-| ------------- | ------------- | -------------------------------------------------------------- |
-| `id`          | sí            | Slug único y apto para URL. También es el nombre base de la imagen. |
-| `nickname`    | sí            | Nombre de fantasía mostrado como título de la tarjeta.         |
-| `realName`    | no            | El nombre real del lugar (se muestra más pequeño).             |
-| `address`     | sí            | Dirección real, mostrada en el detalle.                        |
-| `coordinates` | para el mapa  | `{ "lat": ..., "lng": ... }`. Necesario para colocar el marcador. |
-| `category`    | sí            | Define la insignia (taberna, fortaleza, mercado, bosque, forja…). |
-| `image`       | sí            | Ruta a una imagen destacada dentro de `images/`.               |
-| `imageAlt`    | sí            | Descripción accesible de la imagen.                            |
-| `lore`        | no            | Texto de ambientación dentro del mundo.                        |
-| `tags`        | no            | Arreglo de cadenas; se pueden buscar.                          |
+| Field         | Required | Notes                                                              |
+| ------------- | -------- | ------------------------------------------------------------------ |
+| `id`          | yes      | URL-safe slug, unique. Also used as the image base name.           |
+| `nickname`    | yes      | Fantasy name shown as the card title; the sort key.                |
+| `realName`    | no       | Real place name (shown smaller). We use playful hints here.        |
+| `address`     | yes      | Address shown in the detail view (often colonia-level on purpose). |
+| `coordinates` | for map  | `{ "lat": ..., "lng": ... }`. Needed for a map pin + nav links.    |
+| `category`    | yes      | Drives the badge (e.g. taberna, mercado, templo, santuario…).      |
+| `image`       | yes      | Path to a hero image under `images/`.                              |
+| `imageAlt`    | yes      | Accessibility description of the image.                            |
+| `lore`        | no       | In-world flavor text.                                              |
+| `tags`        | no       | Array of strings; searchable from the search box.                  |
 
-**Imágenes:** coloca un archivo en `images/` y apunta `image` hacia él. Las entradas
-de ejemplo usan marcadores SVG ligeros — reemplázalos por fotos o arte real cuando
-quieras.
+**Images:** seed entries ship as lightweight SVG placeholders (an emoji + label on a
+themed gradient). To make one, copy an existing `images/*.svg`, change the gradient
+colors, emoji, and label, then point the entry's `image` at it. Real photos/art work
+too — just drop the file in `images/`.
 
-**Coordenadas:** si solo tienes la dirección, búscala (por ejemplo, haz clic derecho
-en un punto de Google Maps → la lat/lng aparece arriba) y pega los números.
+**If you rename a location:** update `nickname`, and for consistency also rename its
+`id` and its image file (and the `image` path). Use `git mv` for the image so history
+is preserved.
 
-## Publicar (GitHub Pages)
+## Getting coordinates from a Google Maps link
 
-1. El repositorio público ya existe: https://github.com/Eduardotrom/party-atlas
-2. En **Settings → Pages**: Source = *Deploy from a branch*, Branch = `main`,
-   carpeta = `/ (root)`. (Ya está activado.)
-3. El sitio en vivo: **https://eduardotrom.github.io/party-atlas/**
+The fastest way to fill `coordinates` (and an approximate address):
 
-Cada `push` a `main` vuelve a desplegar el sitio en aproximadamente un minuto.
-El archivo `.nojekyll` ya está incluido para que Pages sirva todo tal cual.
+1. Drop a pin in Google Maps and grab the **share link** (e.g.
+   `https://maps.app.goo.gl/...`).
+2. Expand the short link to reveal the coordinates it encodes:
+   ```bash
+   curl -s -o /dev/null -w '%{url_effective}\n' -L "https://maps.app.goo.gl/XXXX"
+   # -> .../maps/search/19.3133,+-99.124061?...   (lat, lng)
+   ```
+3. (Optional) Reverse-geocode the coordinates to a human address with OpenStreetMap
+   (free, no key):
+   ```bash
+   curl -s "https://nominatim.openstreetmap.org/reverse?lat=19.3133&lon=-99.124061&format=jsonv2&accept-language=es" \
+     -H "User-Agent: party-atlas/1.0"
+   ```
 
-## Cómo está construido
+> **Privacy:** the pins in this project are deliberately **approximate** (placed
+> near, not on, the real address) because the site is public. Keep addresses at
+> colonia level for homes.
 
-| Archivo               | Propósito                                                          |
-| --------------------- | ----------------------------------------------------------------- |
-| `index.html`          | Estructura: galería, contenedor del mapa, búsqueda y botón.       |
-| `css/styles.css`      | Maquetación base + tema de fantasía (pergamino, oro, fuente).     |
-| `js/app.js`           | Carga el JSON, renderiza la galería, la búsqueda y el detalle.    |
-| `js/map.js`           | Mapa Leaflet; **se carga solo al abrir el mapa por primera vez.** |
-| `data/locations.json` | La lista de ubicaciones — el archivo que editas.                  |
-| `images/`             | Imágenes destacadas (las de ejemplo son marcadores SVG).          |
+## Features / how it works
 
-El mapa usa [Leaflet](https://leafletjs.com/) + teselas de OpenStreetMap (gratis, sin
-clave de API). Tanto Leaflet como `map.js` se cargan de forma diferida, por lo que la
-galería se mantiene rápida y el mapa no cuesta nada hasta que lo activas.
+| File                  | Purpose                                                              |
+| --------------------- | -------------------------------------------------------------------- |
+| `index.html`          | Page shell: gallery, map container, search, view toggle, detail dialog. |
+| `css/styles.css`      | Base layout + fantasy theme (parchment, gold, Cinzel display font).  |
+| `js/app.js`           | Fetches + sorts the JSON, renders the gallery, search, detail dialog, and the nav buttons. |
+| `js/map.js`           | Leaflet map; **loaded lazily** only when the map is first opened.    |
+| `data/locations.json` | The location list — the file you edit.                               |
+| `images/`             | Hero images (seed entries are SVG placeholders).                     |
 
-## Ideas para más adelante
+- **Gallery-first**, responsive card grid; click a card for a detail dialog.
+- **Search** box filters by name, lore, category, or tag (live).
+- **Map toggle** reveals an interactive Leaflet + OpenStreetMap map (free, no API
+  key). Both Leaflet and `map.js` load only when the map is opened, so the gallery
+  stays fast. A "Volver a la galería" button returns to the list.
+- **Navigation buttons** in each detail view, built from the coordinates:
+  - **Ver en Maps** — Google Maps place view (`/maps/search/?api=1&query=lat,lng`)
+  - **Waze** — `https://waze.com/ul?ll=lat,lng&navigate=yes`
+  - **Uber** — Uber universal deep link with the destination preloaded
 
-- Un mapa con estilo de fantasía (teselas personalizadas de Mapbox/MapTiler) en lugar
-  del OSM estándar.
-- Alojar la fuente decorativa en `fonts/` para un uso totalmente sin conexión.
+  These are universal links: on mobile they open the native app; on desktop, the web.
+- **Alphabetical sort** by nickname, ignoring leading articles (El/La/Los/Las).
+
+## Cache-busting
+
+`index.html` references the assets with a version query, e.g. `styles.css?v=3` and
+`app.js?v=5`. **When you change `css/styles.css` or `js/app.js`, bump that number**
+(and the `map.js?v=N` inside `app.js`) so returning visitors fetch the new version
+instead of a cached one. `data/locations.json` is fetched with `cache: "no-cache"`,
+so data edits need no bump.
+
+## Deploy (GitHub Pages)
+
+Already configured. To re-enable from scratch: repo **Settings → Pages →** Source =
+*Deploy from a branch*, Branch = `main`, folder = `/ (root)`. The `.nojekyll` file
+makes Pages serve everything as-is. Every push to `main` redeploys in ~1 minute.
+
+### Branch protection
+
+`main` is protected: changes require a **Pull Request**. The repo **admin (owner)**
+can bypass and push directly (`enforce_admins = false`); force-pushes and branch
+deletion are blocked. External contributors can only propose changes via a fork + PR.
+
+## Ideas for later
+
+- Apple Maps link for iPhone users (one more button in the detail row).
+- A fantasy-styled map (Mapbox/MapTiler custom tiles) instead of plain OSM.
+- Self-host the display font in `fonts/` for full offline use.

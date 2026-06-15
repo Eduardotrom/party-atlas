@@ -2,13 +2,13 @@
   {
     "id": "la-boveda-del-goblin",
     "nickname": "La Bóveda del Goblin",
-    "realName": "Pregunta al DM",
+    "realName": "Pregúntale al Dr. Nox Corvis",
     "address": "Los Jardines de Coyoacán, Coyoacán, 04890, Ciudad de México",
     "coordinates": { "lat": 19.3133, "lng": -99.124061 },
     "category": "bóveda",
     "image": "images/la-boveda-del-goblin.svg",
     "imageAlt": "Una bóveda subterránea de piedra verdosa repleta de tesoros custodiados por goblins",
-    "lore": "Pregunta al DM",
+    "lore": "Una cámara donde un goblin astuto amontona su botín: monedas, reliquias arcanas y baratijas que brillan más de lo que valen. Regatea sin piedad… y cuenta tus dedos al salir.",
     "tags": ["compras", "tesoro", "botín", "arcano"]
   },
   {
@@ -50,13 +50,13 @@
   {
     "id": "el-conclave-de-los-espiritus-teluricos",
     "nickname": "El Cónclave de los Espíritus Telúricos",
-    "realName": "Pregúntale al Geomante",
+    "realName": "Sigue el eco de la tierra",
     "address": "Colonia Las Cabañas, Coapa, Coyoacán, 04899, Ciudad de México",
     "coordinates": { "lat": 19.3081, "lng": -99.125848 },
     "category": "santuario",
     "image": "images/el-conclave-de-los-espiritus-teluricos.svg",
     "imageAlt": "El santuario de un geomante: instrumentos de piedra que escuchan la tierra y espíritus telúricos que serpentean en el aire",
-    "lore": "La morada del geomante, que sondea el subsuelo y, con esos mismos ecos, convoca a los espíritus telúricos dormidos en la roca para consultarles cualquier pregunta. Entre temblor y susurro, aquí se descifra lo que la tierra y las voces ocultan.",
+    "lore": "La morada del geomante, que sondea el subsuelo y, con esos ecos, convoca a los espíritus telúricos dormidos en la roca. Entre temblor y susurro, aquí se descifra lo que la tierra oculta.",
     "tags": ["hogar", "geomancia", "ecos", "espíritus"]
   }
 ]
