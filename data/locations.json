@@ -9,7 +9,7 @@
     "image": "images/la-boveda-del-goblin.svg",
     "imageAlt": "Una bóveda subterránea de piedra verdosa repleta de tesoros custodiados por goblins",
     "lore": "Pregunta al DM",
-    "tags": []
+    "tags": ["compras", "tesoro", "botín", "arcano"]
   },
   {
     "id": "el-traspatio-de-valrakt",
