@@ -48,15 +48,15 @@
     "tags": ["mazmorra", "desafío", "reliquias"]
   },
   {
-    "id": "el-conclave-de-tierra-y-ecos",
-    "nickname": "El Cónclave de Tierra y Ecos",
+    "id": "el-conclave-de-los-espiritus-teluricos",
+    "nickname": "El Cónclave de los Espíritus Telúricos",
     "realName": "Pregunta al DM",
     "address": "Colonia Las Cabañas, Coapa, Coyoacán, 04899, Ciudad de México",
     "coordinates": { "lat": 19.3081, "lng": -99.125848 },
     "category": "santuario",
-    "image": "images/el-conclave-de-tierra-y-ecos.svg",
-    "imageAlt": "El santuario de un geomante: instrumentos de piedra que escuchan la tierra y ecos arcanos que serpentean en el aire",
-    "lore": "La morada del geomante, que sondea el subsuelo y, con esos mismos ecos, invoca a los espíritus dormidos en la roca para consultarles cualquier pregunta. Entre temblor y susurro, aquí se descifra lo que la tierra y las voces ocultan.",
+    "image": "images/el-conclave-de-los-espiritus-teluricos.svg",
+    "imageAlt": "El santuario de un geomante: instrumentos de piedra que escuchan la tierra y espíritus telúricos que serpentean en el aire",
+    "lore": "La morada del geomante, que sondea el subsuelo y, con esos mismos ecos, convoca a los espíritus telúricos dormidos en la roca para consultarles cualquier pregunta. Entre temblor y susurro, aquí se descifra lo que la tierra y las voces ocultan.",
     "tags": ["hogar", "geomancia", "ecos", "espíritus"]
   }
 ]
