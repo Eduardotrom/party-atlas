@@ -39,7 +39,7 @@
       const marker = L.marker(latlng).addTo(map);
       marker.bindPopup(
         `<strong>${escapeHtml(loc.nickname)}</strong><br />` +
-          `<button type="button" class="popup-detail" data-id="${escapeHtml(loc.id)}">View details</button>`
+          `<button type="button" class="popup-detail" data-id="${escapeHtml(loc.id)}">Ver detalles</button>`
       );
       if (typeof onMarkerActivate === "function") {
         marker.on("popupopen", (e) => {

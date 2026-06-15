@@ -1,87 +1,91 @@
-# The Party Atlas
+# El Atlas del Grupo
 
-A simple, fast, image-led webpage that lists our D&D party's real-world haunts —
-each given a **fantasy nickname** — as a gallery of cards, with an optional
-interactive map.
+Una página web sencilla, rápida y con mucha imagen que lista los lugares reales de
+nuestro grupo de D&D —cada uno con su **apodo de fantasía**— como una galería de
+tarjetas, con un mapa interactivo opcional.
 
-No build step, no framework. Just HTML, CSS, and a little vanilla JavaScript.
+Sin paso de compilación, sin framework. Solo HTML, CSS y un poco de JavaScript.
 
-## Run it locally
+## Ejecutarlo localmente
 
-The page loads its data with `fetch()`, which browsers block on `file://` URLs,
-so open it through a tiny local server rather than double-clicking `index.html`:
+La página carga sus datos con `fetch()`, lo que los navegadores bloquean en URLs
+`file://`, así que ábrela a través de un pequeño servidor local en lugar de hacer
+doble clic en `index.html`:
 
 ```bash
-# from this folder
+# desde esta carpeta
 python3 -m http.server 8000
-# then open http://localhost:8000 in your browser
+# luego abre http://localhost:8000 en tu navegador
 ```
 
-(Any static server works — e.g. `npx serve` if you prefer Node.)
+(Cualquier servidor estático sirve — por ejemplo `npx serve` si prefieres Node.)
 
-## Add or edit locations
+## Añadir o editar ubicaciones
 
-Everything lives in **`data/locations.json`**. Add an object to the array:
+Todo vive en **`data/locations.json`**. Añade un objeto al arreglo:
 
 ```json
 {
-  "id": "the-tipsy-tankard",
-  "nickname": "The Tipsy Tankard",
-  "realName": "Mike's Place",
-  "address": "742 Evergreen Terrace, Springfield",
+  "id": "la-jarra-alegre",
+  "nickname": "La Jarra Alegre",
+  "realName": "Casa de Miguel",
+  "address": "Av. Siempreviva 742, Springfield",
   "coordinates": { "lat": 40.7128, "lng": -74.006 },
-  "category": "tavern",
-  "image": "images/the-tipsy-tankard.svg",
-  "imageAlt": "Short description of the image for screen readers",
-  "lore": "A flavorful in-world description.",
-  "tags": ["meeting-point", "food"]
+  "category": "taberna",
+  "image": "images/la-jarra-alegre.svg",
+  "imageAlt": "Descripción breve de la imagen para lectores de pantalla",
+  "lore": "Una descripción con sabor a fantasía.",
+  "tags": ["punto-de-encuentro", "comida"]
 }
 ```
 
-| Field         | Required | Notes                                                        |
-| ------------- | -------- | ------------------------------------------------------------ |
-| `id`          | yes      | URL-safe slug, unique. Also used as the image base name.     |
-| `nickname`    | yes      | Fantasy name shown as the card title.                        |
-| `realName`    | no       | The real place name (shown smaller).                         |
-| `address`     | yes      | Real-world address, shown in the detail view.                |
-| `coordinates` | for map  | `{ "lat": ..., "lng": ... }`. Needed to place a map marker.  |
-| `category`    | yes      | Drives the badge (e.g. tavern, keep, market, wilds, forge).  |
-| `image`       | yes      | Path to a hero image under `images/`.                        |
-| `imageAlt`    | yes      | Accessibility description of the image.                      |
-| `lore`        | no       | In-world flavor text.                                        |
-| `tags`        | no       | Array of strings; searchable.                                |
+| Campo         | ¿Obligatorio? | Notas                                                          |
+| ------------- | ------------- | -------------------------------------------------------------- |
+| `id`          | sí            | Slug único y apto para URL. También es el nombre base de la imagen. |
+| `nickname`    | sí            | Nombre de fantasía mostrado como título de la tarjeta.         |
+| `realName`    | no            | El nombre real del lugar (se muestra más pequeño).             |
+| `address`     | sí            | Dirección real, mostrada en el detalle.                        |
+| `coordinates` | para el mapa  | `{ "lat": ..., "lng": ... }`. Necesario para colocar el marcador. |
+| `category`    | sí            | Define la insignia (taberna, fortaleza, mercado, bosque, forja…). |
+| `image`       | sí            | Ruta a una imagen destacada dentro de `images/`.               |
+| `imageAlt`    | sí            | Descripción accesible de la imagen.                            |
+| `lore`        | no            | Texto de ambientación dentro del mundo.                        |
+| `tags`        | no            | Arreglo de cadenas; se pueden buscar.                          |
 
-**Images:** drop a file in `images/` and point `image` at it. The seed entries use
-lightweight SVG placeholders — replace them with real photos or art any time.
+**Imágenes:** coloca un archivo en `images/` y apunta `image` hacia él. Las entradas
+de ejemplo usan marcadores SVG ligeros — reemplázalos por fotos o arte real cuando
+quieras.
 
-**Coordinates:** if you only have an address, look it up (e.g. right-click a spot in
-Google Maps → the lat/lng is at the top) and paste the numbers in.
+**Coordenadas:** si solo tienes la dirección, búscala (por ejemplo, haz clic derecho
+en un punto de Google Maps → la lat/lng aparece arriba) y pega los números.
 
-## Deploy (GitHub Pages)
+## Publicar (GitHub Pages)
 
-1. Create a public GitHub repo and push this folder.
-2. Repo **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*,
-   Branch = `main`, folder = `/ (root)`.
-3. Wait a minute, then visit the URL Pages gives you.
+1. El repositorio público ya existe: https://github.com/Eduardotrom/party-atlas
+2. En **Settings → Pages**: Source = *Deploy from a branch*, Branch = `main`,
+   carpeta = `/ (root)`. (Ya está activado.)
+3. El sitio en vivo: **https://eduardotrom.github.io/party-atlas/**
 
-The `.nojekyll` file is already included so Pages serves everything as-is.
+Cada `push` a `main` vuelve a desplegar el sitio en aproximadamente un minuto.
+El archivo `.nojekyll` ya está incluido para que Pages sirva todo tal cual.
 
-## How it's built
+## Cómo está construido
 
-| File                  | Purpose                                                            |
-| --------------------- | ------------------------------------------------------------------ |
-| `index.html`          | Page shell: gallery container, map container, search, toggle.      |
-| `css/styles.css`      | Base layout + fantasy theme (parchment, gold, display font).       |
-| `js/app.js`           | Fetches the JSON, renders the gallery, search, and detail dialog.  |
-| `js/map.js`           | Leaflet map; **loaded only when the map is first opened.**         |
-| `data/locations.json` | The location list — the file you edit.                             |
-| `images/`             | Hero images (seed entries ship as SVG placeholders).               |
+| Archivo               | Propósito                                                          |
+| --------------------- | ----------------------------------------------------------------- |
+| `index.html`          | Estructura: galería, contenedor del mapa, búsqueda y botón.       |
+| `css/styles.css`      | Maquetación base + tema de fantasía (pergamino, oro, fuente).     |
+| `js/app.js`           | Carga el JSON, renderiza la galería, la búsqueda y el detalle.    |
+| `js/map.js`           | Mapa Leaflet; **se carga solo al abrir el mapa por primera vez.** |
+| `data/locations.json` | La lista de ubicaciones — el archivo que editas.                  |
+| `images/`             | Imágenes destacadas (las de ejemplo son marcadores SVG).          |
 
-The map uses [Leaflet](https://leafletjs.com/) + OpenStreetMap tiles (free, no API
-key). Both Leaflet and `map.js` are loaded lazily, so the gallery stays fast and the
-map costs nothing until you toggle it.
+El mapa usa [Leaflet](https://leafletjs.com/) + teselas de OpenStreetMap (gratis, sin
+clave de API). Tanto Leaflet como `map.js` se cargan de forma diferida, por lo que la
+galería se mantiene rápida y el mapa no cuesta nada hasta que lo activas.
 
-## Ideas for later
+## Ideas para más adelante
 
-- A fantasy-styled map (Mapbox/MapTiler custom tiles) instead of plain OSM.
-- Self-host the display font in `fonts/` for full offline use.
+- Un mapa con estilo de fantasía (teselas personalizadas de Mapbox/MapTiler) en lugar
+  del OSM estándar.
+- Alojar la fuente decorativa en `fonts/` para un uso totalmente sin conexión.

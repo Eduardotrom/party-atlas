@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Party Atlas</title>
-  <meta name="description" content="A fantasy directory of our adventuring party's haunts and holdfasts." />
+  <title>El Atlas del Grupo</title>
+  <meta name="description" content="Un directorio de fantasía con las guaridas y refugios de nuestro grupo de aventureros." />
 
   <!-- Display/fantasy font for headings & nicknames; falls back to Georgia if offline. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,44 +26,44 @@
 </head>
 <body>
   <header class="site-header">
-    <h1 class="site-title">The Party Atlas</h1>
-    <p class="site-tagline">Haunts &amp; holdfasts of our merry band</p>
+    <h1 class="site-title">El Atlas del Grupo</h1>
+    <p class="site-tagline">Guaridas y refugios de nuestra alegre compañía</p>
 
     <div class="controls">
       <input
         type="search"
         id="filter-input"
         class="filter-input"
-        placeholder="Search by name, lore, or tag…"
-        aria-label="Search locations"
+        placeholder="Busca por nombre, historia o etiqueta…"
+        aria-label="Buscar ubicaciones"
       />
       <button id="view-toggle" class="view-toggle" type="button" aria-pressed="false">
-        <span class="view-toggle__label">Show map</span>
+        <span class="view-toggle__label">Ver mapa</span>
       </button>
     </div>
   </header>
 
   <main>
-    <!-- Gallery: the default landing view -->
-    <section id="gallery-view" aria-label="Location gallery">
+    <!-- Galería: la vista inicial por defecto -->
+    <section id="gallery-view" aria-label="Galería de ubicaciones">
       <ul id="gallery" class="gallery" aria-live="polite"></ul>
-      <p id="empty-state" class="empty-state" hidden>No locations match your search.</p>
+      <p id="empty-state" class="empty-state" hidden>Ninguna ubicación coincide con tu búsqueda.</p>
     </section>
 
-    <!-- Map: hidden until toggled; Leaflet mounts here lazily -->
-    <section id="map-view" aria-label="Location map" hidden>
+    <!-- Mapa: oculto hasta activarse; Leaflet se monta aquí de forma diferida -->
+    <section id="map-view" aria-label="Mapa de ubicaciones" hidden>
       <div id="map" class="map"></div>
     </section>
   </main>
 
-  <!-- Detail dialog -->
-  <dialog id="detail-dialog" class="detail" aria-label="Location details">
-    <button class="detail__close" type="button" data-close-detail aria-label="Close">&times;</button>
+  <!-- Diálogo de detalle -->
+  <dialog id="detail-dialog" class="detail" aria-label="Detalles de la ubicación">
+    <button class="detail__close" type="button" data-close-detail aria-label="Cerrar">&times;</button>
     <div id="detail-body" class="detail__body"></div>
   </dialog>
 
   <footer class="site-footer">
-    <p>Built for the party, by the party. Map data &copy; OpenStreetMap contributors.</p>
+    <p>Hecho para el grupo, por el grupo. Datos del mapa &copy; colaboradores de OpenStreetMap.</p>
   </footer>
 
   <script src="js/app.js" defer></script>

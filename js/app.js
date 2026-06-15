@@ -66,7 +66,7 @@
                  alt="${escapeHtml(loc.imageAlt || loc.nickname)}" loading="lazy" />
           </span>
           <span class="card__body">
-            <span class="card__badge">${escapeHtml(loc.category || "place")}</span>
+            <span class="card__badge">${escapeHtml(loc.category || "lugar")}</span>
             <span class="card__title">${escapeHtml(loc.nickname)}</span>
             ${loc.realName ? `<span class="card__subtitle">${escapeHtml(loc.realName)}</span>` : ""}
           </span>
@@ -81,7 +81,7 @@
   function renderDetail(loc) {
     const coords = loc.coordinates
       ? `${loc.coordinates.lat.toFixed(5)}, ${loc.coordinates.lng.toFixed(5)}`
-      : "Unknown";
+      : "Desconocidas";
     const tags = (loc.tags || [])
       .map((t) => `<li class="tag">${escapeHtml(t)}</li>`)
       .join("");
@@ -89,20 +89,20 @@
     els.detailBody.innerHTML = `
       <img class="detail__img" src="${escapeHtml(loc.image)}"
            alt="${escapeHtml(loc.imageAlt || loc.nickname)}" />
-      <span class="detail__badge">${escapeHtml(loc.category || "place")}</span>
+      <span class="detail__badge">${escapeHtml(loc.category || "lugar")}</span>
       <h2 class="detail__title">${escapeHtml(loc.nickname)}</h2>
       ${loc.realName ? `<p class="detail__realname">${escapeHtml(loc.realName)}</p>` : ""}
       <p class="detail__lore">${escapeHtml(loc.lore || "")}</p>
       <dl class="detail__facts">
-        <dt>Address</dt><dd>${escapeHtml(loc.address || "Unknown")}</dd>
-        <dt>Coordinates</dt><dd>${escapeHtml(coords)}</dd>
+        <dt>Dirección</dt><dd>${escapeHtml(loc.address || "Desconocida")}</dd>
+        <dt>Coordenadas</dt><dd>${escapeHtml(coords)}</dd>
       </dl>
       ${tags ? `<ul class="detail__tags">${tags}</ul>` : ""}
       ${
         loc.coordinates
           ? `<button class="detail__map-link" type="button" data-show-on-map="${escapeHtml(
               loc.id
-            )}">Show on map</button>`
+            )}">Ver en el mapa</button>`
           : ""
       }
     `;
@@ -143,7 +143,7 @@
       await loadMapScript();
     } catch (err) {
       console.error(err);
-      alert("Sorry — the map could not be loaded. Check your connection.");
+      alert("Lo sentimos: no se pudo cargar el mapa. Revisa tu conexión.");
       return;
     }
     // map.js exposes window.PartyAtlasMap
@@ -153,7 +153,7 @@
     els.mapView.hidden = false;
     state.mapVisible = true;
     els.viewToggle.setAttribute("aria-pressed", "true");
-    els.toggleLabel.textContent = "Show gallery";
+    els.toggleLabel.textContent = "Ver galería";
     window.PartyAtlasMap.refresh(); // fix tile sizing after un-hide
     if (focusId) window.PartyAtlasMap.focus(focusId);
   }
@@ -163,7 +163,7 @@
     els.galleryView.hidden = false;
     state.mapVisible = false;
     els.viewToggle.setAttribute("aria-pressed", "false");
-    els.toggleLabel.textContent = "Show map";
+    els.toggleLabel.textContent = "Ver mapa";
   }
 
   function openDetailById(id) {
@@ -214,7 +214,7 @@
       els.gallery.innerHTML = "";
       els.emptyState.hidden = false;
       els.emptyState.textContent =
-        "Could not load locations. If you opened the file directly, run a local server (see README).";
+        "No se pudieron cargar las ubicaciones. Si abriste el archivo directamente, ejecuta un servidor local (consulta el README).";
       return;
     }
     renderGallery();
