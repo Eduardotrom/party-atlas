@@ -26,7 +26,7 @@
   {
     "id": "la-comarca",
     "nickname": "La Comarca",
-    "realName": "Pregunta al DM",
+    "realName": "Pregunta a tu bigotón de confianza",
     "address": "Avenida Copilco 162, Copilco, Coyoacán, 04359, Ciudad de México",
     "coordinates": { "lat": 19.337993, "lng": -99.186213 },
     "category": "aldea",
@@ -34,5 +34,17 @@
     "imageAlt": "Una comarca apacible de colinas verdes y puertas redondas entre jardines",
     "lore": "Una comarca apacible de colinas verdes y puertas redondas, donde la mayor hazaña del día es decidir qué hornear. Aquí el grupo descansa y celebra entre aventuras.",
     "tags": ["hogar", "descanso", "comida"]
+  },
+  {
+    "id": "el-templo-de-las-4-bestias",
+    "nickname": "El Templo de las 4 Bestias",
+    "realName": "Los bardos te guiarán",
+    "address": "Calle Cerro de San Antonio, Colonia Petrolera Taxqueña, Coyoacán, 04410, Ciudad de México",
+    "coordinates": { "lat": 19.339238, "lng": -99.137091 },
+    "category": "templo",
+    "image": "images/el-templo-de-las-4-bestias.svg",
+    "imageAlt": "Un templo antiguo de piedra custodiado por cuatro bestias talladas en sus columnas",
+    "lore": "Un santuario olvidado donde cuatro bestias guardianas vigilan cada rincón. Solo los más audaces cruzan sus umbrales en busca de las reliquias que ocultan sus cámaras.",
+    "tags": ["mazmorra", "desafío", "reliquias"]
   }
 ]
