@@ -1,0 +1,290 @@
+/* The Party Atlas — base layout + fantasy theme.
+   Theme is driven by custom properties so it layers over a working base. */
+
+:root {
+  /* Palette */
+  --parchment: #f4ecd8;
+  --parchment-dark: #e6d8b8;
+  --ink: #2b2117;
+  --ink-soft: #5a4a32;
+  --gold: #b8860b;
+  --gold-bright: #d4a017;
+  --wine: #6b2737;
+  --shadow: rgba(43, 33, 23, 0.35);
+
+  /* Type */
+  --font-display: "Cinzel", "Trajan Pro", Georgia, "Times New Roman", serif;
+  --font-body: Georgia, "Palatino Linotype", "Book Antiqua", serif;
+
+  /* Layout */
+  --radius: 10px;
+  --gap: 1.25rem;
+  --maxw: 1200px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--parchment);
+  /* Subtle parchment texture via layered gradients (no image asset needed). */
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(184, 134, 11, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 85%, rgba(107, 39, 55, 0.06), transparent 40%),
+    repeating-linear-gradient(45deg, rgba(43, 33, 23, 0.015) 0 2px, transparent 2px 6px);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* --- Header & controls --------------------------------------------------- */
+.site-header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  border-bottom: 3px double var(--gold);
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 0 1px 0 var(--parchment-dark), 0 2px 3px var(--shadow);
+}
+
+.site-tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.35rem 0 1.25rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.filter-input {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+}
+.filter-input:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.view-toggle {
+  flex: 0 0 auto;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--parchment);
+  background: var(--wine);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.view-toggle:hover { background: #82303f; transform: translateY(-1px); }
+.view-toggle:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+/* --- Gallery grid -------------------------------------------------------- */
+main { max-width: var(--maxw); margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+.gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card { margin: 0; }
+
+.card__button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  background: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--shadow);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  font: inherit;
+  color: inherit;
+}
+.card__button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow), 0 0 0 1px var(--gold-bright);
+  border-color: var(--gold-bright);
+}
+.card__button:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 2px; }
+
+.card__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
+.card__img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.3s ease;
+}
+.card__button:hover .card__img { transform: scale(1.05); }
+
+.card__body { display: block; padding: 0.85rem 1rem 1.1rem; position: relative; }
+
+.card__badge,
+.detail__badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--gold);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+
+.card__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.card__subtitle { display: block; font-size: 0.85rem; font-style: italic; color: var(--ink-soft); }
+
+.empty-state { text-align: center; font-style: italic; color: var(--ink-soft); padding: 2rem; }
+
+/* --- Map ----------------------------------------------------------------- */
+.map {
+  width: 100%;
+  height: min(70vh, 600px);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Leaflet popup "View details" button */
+.popup-detail {
+  margin-top: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--parchment);
+  background: var(--wine);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.popup-detail:hover { background: #82303f; }
+
+/* --- Detail dialog ------------------------------------------------------- */
+.detail {
+  width: min(92vw, 560px);
+  max-height: 88vh;
+  padding: 0;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--parchment);
+  color: var(--ink);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.detail::backdrop { background: rgba(20, 14, 6, 0.62); }
+
+.detail__close {
+  position: absolute;
+  top: 0.5rem; right: 0.6rem;
+  width: 2rem; height: 2rem;
+  font-size: 1.4rem; line-height: 1;
+  color: var(--parchment);
+  background: var(--wine);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+.detail__close:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+.detail__body { display: block; }
+.detail__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.detail__badge { margin: 1rem 0 0 1.25rem; }
+.detail__title { font-family: var(--font-display); margin: 0.4rem 1.25rem 0; font-size: 1.6rem; }
+.detail__realname { font-style: italic; color: var(--ink-soft); margin: 0.1rem 1.25rem 0; }
+.detail__lore { margin: 0.8rem 1.25rem; }
+
+.detail__facts {
+  margin: 0 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.9rem;
+}
+.detail__facts dt { font-family: var(--font-display); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+.detail__facts dd { margin: 0; }
+
+.detail__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 1.25rem; padding: 0; }
+.tag {
+  font-size: 0.75rem;
+  background: var(--parchment-dark);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  color: var(--ink-soft);
+}
+
+.detail__map-link {
+  margin: 0.4rem 1.25rem 1.4rem;
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-display);
+  color: var(--parchment);
+  background: var(--wine);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.detail__map-link:hover { background: #82303f; }
+.detail__map-link:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+/* --- Footer -------------------------------------------------------------- */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--gold);
+}
+
+/* --- Motion & responsiveness -------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery { grid-template-columns: 1fr; }
+  .controls { flex-direction: column; }
+  .view-toggle { width: 100%; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Party Atlas</title>
+  <meta name="description" content="A fantasy directory of our adventuring party's haunts and holdfasts." />
+
+  <!-- Display/fantasy font for headings & nicknames; falls back to Georgia if offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Leaflet CSS (loaded eagerly; the JS is lazy-loaded only when the map is opened) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">The Party Atlas</h1>
+    <p class="site-tagline">Haunts &amp; holdfasts of our merry band</p>
+
+    <div class="controls">
+      <input
+        type="search"
+        id="filter-input"
+        class="filter-input"
+        placeholder="Search by name, lore, or tag…"
+        aria-label="Search locations"
+      />
+      <button id="view-toggle" class="view-toggle" type="button" aria-pressed="false">
+        <span class="view-toggle__label">Show map</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Gallery: the default landing view -->
+    <section id="gallery-view" aria-label="Location gallery">
+      <ul id="gallery" class="gallery" aria-live="polite"></ul>
+      <p id="empty-state" class="empty-state" hidden>No locations match your search.</p>
+    </section>
+
+    <!-- Map: hidden until toggled; Leaflet mounts here lazily -->
+    <section id="map-view" aria-label="Location map" hidden>
+      <div id="map" class="map"></div>
+    </section>
+  </main>
+
+  <!-- Detail dialog -->
+  <dialog id="detail-dialog" class="detail" aria-label="Location details">
+    <button class="detail__close" type="button" data-close-detail aria-label="Close">&times;</button>
+    <div id="detail-body" class="detail__body"></div>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Built for the party, by the party. Map data &copy; OpenStreetMap contributors.</p>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

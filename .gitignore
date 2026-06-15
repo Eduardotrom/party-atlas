@@ -1,0 +1,14 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Tooling state (not part of the site)
+.epsilon_dev/
+.epsilon/
+
+# Local server / logs
+*.log
