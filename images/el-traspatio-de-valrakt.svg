@@ -2,10 +2,10 @@
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#6a3d7b"/>
-      <stop offset="1" stop-color="#2e1738"/>
+      <stop offset="1" stop-color="#2a1138"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#g)"/>
-  <text x="400" y="300" font-size="220" text-anchor="middle" dominant-baseline="central">🎲</text>
-  <text x="400" y="500" font-size="40" fill="#f4ecd8" text-anchor="middle" font-family="Georgia, serif" opacity="0.85">Mercado</text>
+  <text x="400" y="300" font-size="220" text-anchor="middle" dominant-baseline="central">🔮</text>
+  <text x="400" y="500" font-size="40" fill="#f4ecd8" text-anchor="middle" font-family="Georgia, serif" opacity="0.85">Objetos mágicos</text>
 </svg>

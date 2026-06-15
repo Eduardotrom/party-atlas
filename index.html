@@ -22,7 +22,7 @@
     crossorigin=""
   />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
 </head>
 <body>
   <header class="site-header">
@@ -52,6 +52,7 @@
 
     <!-- Mapa: oculto hasta activarse; Leaflet se monta aquí de forma diferida -->
     <section id="map-view" aria-label="Mapa de ubicaciones" hidden>
+      <button id="map-back" class="map-back" type="button">&larr; Volver a la galería</button>
       <div id="map" class="map"></div>
     </section>
   </main>
@@ -66,6 +67,6 @@
     <p>Hecho para el grupo, por el grupo. Datos del mapa &copy; colaboradores de OpenStreetMap.</p>
   </footer>
 
-  <script src="js/app.js" defer></script>
+  <script src="js/app.js?v=3" defer></script>
 </body>
 </html>

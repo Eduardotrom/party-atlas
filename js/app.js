@@ -19,6 +19,7 @@
     toggleLabel: document.querySelector(".view-toggle__label"),
     galleryView: document.getElementById("gallery-view"),
     mapView: document.getElementById("map-view"),
+    mapBack: document.getElementById("map-back"),
     dialog: document.getElementById("detail-dialog"),
     detailBody: document.getElementById("detail-body"),
   };
@@ -86,6 +87,32 @@
       .map((t) => `<li class="tag">${escapeHtml(t)}</li>`)
       .join("");
 
+    // Action row: our internal map + universal links that open the native app
+    // (Google Maps / Waze / Uber) on mobile, with directions to the coordinates.
+    let actions = "";
+    if (loc.coordinates) {
+      const { lat, lng } = loc.coordinates;
+      const ll = `${lat},${lng}`;
+      const name = encodeURIComponent(loc.nickname);
+      const gmaps = `https://www.google.com/maps/search/?api=1&query=${ll}`;
+      const waze = `https://waze.com/ul?ll=${ll}&navigate=yes`;
+      const uber =
+        `https://m.uber.com/ul/?action=setPickup&pickup=my_location` +
+        `&dropoff[latitude]=${lat}&dropoff[longitude]=${lng}&dropoff[nickname]=${name}`;
+      actions = `
+      <div class="detail__actions">
+        <button class="detail__btn detail__btn--map" type="button" data-show-on-map="${escapeHtml(
+          loc.id
+        )}"><span class="detail__btn-icon">📍</span>Ver en nuestro mapa</button>
+        <a class="detail__btn detail__btn--ext" href="${escapeHtml(gmaps)}"
+           target="_blank" rel="noopener noreferrer"><span class="detail__btn-icon">🗺️</span>Ver en Maps</a>
+        <a class="detail__btn detail__btn--ext" href="${escapeHtml(waze)}"
+           target="_blank" rel="noopener noreferrer"><span class="detail__btn-icon">🧭</span>Waze</a>
+        <a class="detail__btn detail__btn--ext" href="${escapeHtml(uber)}"
+           target="_blank" rel="noopener noreferrer"><span class="detail__btn-icon">🚗</span>Uber</a>
+      </div>`;
+    }
+
     els.detailBody.innerHTML = `
       <img class="detail__img" src="${escapeHtml(loc.image)}"
            alt="${escapeHtml(loc.imageAlt || loc.nickname)}" />
@@ -98,13 +125,7 @@
         <dt>Coordenadas</dt><dd>${escapeHtml(coords)}</dd>
       </dl>
       ${tags ? `<ul class="detail__tags">${tags}</ul>` : ""}
-      ${
-        loc.coordinates
-          ? `<button class="detail__map-link" type="button" data-show-on-map="${escapeHtml(
-              loc.id
-            )}">Ver en el mapa</button>`
-          : ""
-      }
+      ${actions}
     `;
     if (typeof els.dialog.showModal === "function") {
       els.dialog.showModal();
@@ -126,7 +147,7 @@
       leaflet.onerror = () => reject(new Error("Failed to load Leaflet"));
       leaflet.onload = () => {
         const mod = document.createElement("script");
-        mod.src = "js/map.js";
+        mod.src = "js/map.js?v=3";
         mod.onerror = () => reject(new Error("Failed to load map.js"));
         mod.onload = () => {
           state.mapLoaded = true;
@@ -187,6 +208,9 @@
       if (state.mapVisible) showGallery();
       else showMap();
     });
+
+    // Dedicated "back to gallery" button shown inside the map view.
+    els.mapBack.addEventListener("click", showGallery);
 
     // Detail dialog: close button, "show on map", and backdrop click.
     els.dialog.addEventListener("click", (e) => {

@@ -1,62 +1,26 @@
 [
   {
-    "id": "la-jarra-alegre",
-    "nickname": "La Jarra Alegre",
-    "realName": "Casa de Miguel",
-    "address": "Av. Siempreviva 742, Springfield",
-    "coordinates": { "lat": 40.7128, "lng": -74.006 },
-    "category": "taberna",
-    "image": "images/la-jarra-alegre.svg",
-    "imageAlt": "Una taberna cálida iluminada por velas, con vigas de madera y jarras rebosantes",
-    "lore": "Donde el grupo se reúne antes de cada misión. El hogar siempre está encendido, el hidromiel nunca se agota y se dice que el laúd del bardo despierta el valor hasta del pícaro más cobarde.",
-    "tags": ["punto-de-encuentro", "comida", "semanal"]
+    "id": "la-boveda-del-goblin",
+    "nickname": "La Bóveda del Goblin",
+    "realName": "Pregunta al DM",
+    "address": "Los Jardines de Coyoacán, Coyoacán, 04890, Ciudad de México",
+    "coordinates": { "lat": 19.3133, "lng": -99.124061 },
+    "category": "bóveda",
+    "image": "images/la-boveda-del-goblin.svg",
+    "imageAlt": "Una bóveda subterránea de piedra verdosa repleta de tesoros custodiados por goblins",
+    "lore": "Pregunta al DM",
+    "tags": []
   },
   {
-    "id": "la-fortaleza-de-hierro",
-    "nickname": "La Fortaleza de Hierro",
-    "realName": "Casa de Sara y Tomás",
-    "address": "Av. Pensilvania 1600, Ciudad Capital",
-    "coordinates": { "lat": 40.73, "lng": -73.99 },
-    "category": "fortaleza",
-    "image": "images/la-fortaleza-de-hierro.svg",
-    "imageAlt": "Una recia fortaleza de piedra rodeada de antiguos árboles de hierro",
-    "lore": "Un bastión de comodidad con una gran mesa de roble apta para las campañas más largas. Se rumorea que la despensa de aperitivos está encantada para no vaciarse jamás.",
-    "tags": ["punto-de-encuentro", "sesiones-largas"]
-  },
-  {
-    "id": "el-mercado-arcano",
-    "nickname": "El Mercado Arcano",
-    "realName": "Tienda de Juegos del Centro",
-    "address": "Calle Baker 221B, Casco Viejo",
-    "coordinates": { "lat": 40.722, "lng": -74.012 },
+    "id": "el-traspatio-de-valrakt",
+    "nickname": "El Traspatio de Valrakt",
+    "realName": "Pregunta a Valrakt",
+    "address": "Cerrada Retorno 42, Colonia Avante, Coyoacán, 04460, Ciudad de México",
+    "coordinates": { "lat": 19.32887, "lng": -99.135345 },
     "category": "mercado",
-    "image": "images/el-mercado-arcano.svg",
-    "imageAlt": "Un bullicioso puesto de mercado repleto de dados, tomos y curiosidades",
-    "lore": "Proveedor de dados justos y malditos, miniaturas sin pintar y tomos de reglas en constante cambio. Gasta tus monedas aquí, para tu perdición y tu deleite.",
-    "tags": ["compras", "dados", "suministros"]
-  },
-  {
-    "id": "la-arboleda-susurrante",
-    "nickname": "La Arboleda Susurrante",
-    "realName": "Parque de la Ribera",
-    "address": "Parque Central Oeste, Valle Verde",
-    "coordinates": { "lat": 40.74, "lng": -73.97 },
-    "category": "bosque",
-    "image": "images/la-arboleda-susurrante.svg",
-    "imageAlt": "Un claro de bosque soleado con un sendero serpenteante",
-    "lore": "Cuando el clima se vuelve amable, el grupo se congrega bajo las ramas para el picnic y la charla. Cuidado con las ardillas: son más listas de lo que parecen.",
-    "tags": ["aire-libre", "de-temporada"]
-  },
-  {
-    "id": "la-forja-de-medianoche",
-    "nickname": "La Forja de Medianoche",
-    "realName": "El Garaje de David",
-    "address": "Calle del Taller 5, Villa Brasa",
-    "coordinates": { "lat": 40.705, "lng": -74.02 },
-    "category": "forja",
-    "image": "images/la-forja-de-medianoche.svg",
-    "imageAlt": "La forja resplandeciente de un herrero, con yunque y herramientas colgadas",
-    "lore": "Donde se construye la escenografía, se pintan las miniaturas y, de vez en cuando, se ensambla un dragón de cartón y pura ambición. Huele levemente a pegamento y a triunfo.",
-    "tags": ["manualidades", "escenografía"]
+    "image": "images/el-traspatio-de-valrakt.svg",
+    "imageAlt": "El traspatio de un brujo, repleto de objetos mágicos, frascos brillantes y reliquias arcanas",
+    "lore": "Valrakt, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
+    "tags": ["compras", "objetos-mágicos", "arcano"]
   }
 ]
