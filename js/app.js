@@ -233,6 +233,14 @@
       const res = await fetch("data/locations.json", { cache: "no-cache" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       state.locations = await res.json();
+      // Sort alphabetically by fantasy name, ignoring leading articles
+      // (El/La/Los/Las); Spanish locale handles accents/case.
+      const sortKey = (s) => s.replace(/^\s*(el|la|los|las)\s+/i, "");
+      state.locations.sort((a, b) =>
+        sortKey(a.nickname).localeCompare(sortKey(b.nickname), "es", {
+          sensitivity: "base",
+        })
+      );
     } catch (err) {
       console.error(err);
       els.gallery.innerHTML = "";
