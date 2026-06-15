@@ -58,5 +58,29 @@
     "imageAlt": "El santuario de un geomante: instrumentos de piedra que escuchan la tierra y espíritus telúricos que serpentean en el aire",
     "lore": "La morada del geomante, que sondea el subsuelo y, con esos ecos, convoca a los espíritus telúricos dormidos en la roca. Entre temblor y susurro, aquí se descifra lo que la tierra oculta.",
     "tags": ["hogar", "geomancia", "ecos", "espíritus"]
+  },
+  {
+    "id": "mordor",
+    "nickname": "Mordor",
+    "realName": "No se entra así nomás",
+    "address": "Villas Xaltipa, Cuautitlán, 54850, Estado de México",
+    "coordinates": { "lat": 19.6908, "lng": -99.1606 },
+    "category": "fortaleza",
+    "image": "images/mordor.svg",
+    "imageAlt": "Una tierra sombría bajo un cielo de ceniza, dominada por un volcán humeante en el horizonte",
+    "lore": "Una tierra ensombrecida bajo un cielo de ceniza, dominada por un volcán inquieto que marca el horizonte. Pocos se aventuran hasta sus puertas, y menos aún regresan para contarlo.",
+    "tags": ["sombras", "volcán", "peligro", "mazmorra"]
+  },
+  {
+    "id": "cueva-de-la-iniciativa",
+    "nickname": "Cueva de la Iniciativa",
+    "realName": "Donde se lanza el primer dado",
+    "address": "Colonia Buenos Aires, Cuauhtémoc, 06780, Ciudad de México",
+    "coordinates": { "lat": 19.406731, "lng": -99.148257 },
+    "category": "cueva",
+    "image": "images/cueva-de-la-iniciativa.svg",
+    "imageAlt": "Una gruta tenue iluminada por una vela, punto de reunión donde la compañía traza su rumbo",
+    "lore": "El lugar en el que las aventuras comienzan: una gruta tenue donde la compañía se reúne, lanza la iniciativa y traza su rumbo antes de partir hacia lo desconocido.",
+    "tags": ["inicio", "reunión", "aventura"]
   }
 ]
