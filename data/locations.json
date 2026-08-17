@@ -82,5 +82,17 @@
     "imageAlt": "Una gruta tenue iluminada por una vela, punto de reunión donde la compañía traza su rumbo",
     "lore": "El lugar en el que las aventuras comienzan: una gruta tenue donde la compañía se reúne, lanza la iniciativa y traza su rumbo antes de partir hacia lo desconocido.",
     "tags": ["inicio", "reunión", "aventura"]
+  },
+  {
+    "id": "la-casa-de-enoc",
+    "nickname": "La Casa de Enoc",
+    "realName": "Pregunta a Enoc",
+    "address": "Cerrada Retorno 45, Colonia Avante, Coyoacán, 04460, Ciudad de México",
+    "coordinates": { "lat": 19.327587, "lng": -99.133606 },
+    "category": "mercado",
+    "image": "images/la-casa-de-enoc.svg",
+    "imageAlt": "La casa de un brujo, repleta de objetos mágicos, frascos brillantes y reliquias arcanas",
+    "lore": "Enoc, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
+    "tags": ["compras", "objetos-mágicos", "arcano"]
   }
 ]
