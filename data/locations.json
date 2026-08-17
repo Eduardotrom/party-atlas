@@ -84,15 +84,15 @@
     "tags": ["inicio", "reunión", "aventura"]
   },
   {
-    "id": "la-casa-de-enoc",
-    "nickname": "La Casa de Enoc",
-    "realName": "Pregunta a Enoc",
+    "id": "la-casa-de-henoc",
+    "nickname": "La Casa de Henoc",
+    "realName": "Pregunta a Henoc",
     "address": "Cerrada Retorno 45, Colonia Avante, Coyoacán, 04460, Ciudad de México",
     "coordinates": { "lat": 19.327587, "lng": -99.133606 },
-    "category": "mercado",
-    "image": "images/la-casa-de-enoc.svg",
-    "imageAlt": "La casa de un brujo, repleta de objetos mágicos, frascos brillantes y reliquias arcanas",
-    "lore": "Enoc, un brujo de pacto sombrío, comercia aquí con objetos mágicos, pociones y curiosidades arcanas. Regatea con cuidado: toda ganga puede esconder una cláusula.",
-    "tags": ["compras", "objetos-mágicos", "arcano"]
+    "category": "morada",
+    "image": "images/la-casa-de-henoc.svg",
+    "imageAlt": "Una morada alquímica de alambiques y grimorios, envuelta en un fulgor que trasciende la muerte",
+    "lore": "El inicio para los marcados por Caín: morada del pensamiento alquímico, trascendente a la muerte y resplandeciente para los hijos de la eternidad. Entre alambiques y grimorios, Henoc destila secretos que ninguna tumba retiene.",
+    "tags": ["alquimia", "eternidad", "arcano"]
   }
 ]
