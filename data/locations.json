@@ -94,5 +94,17 @@
     "imageAlt": "Una morada alquímica de alambiques y grimorios, envuelta en un fulgor que trasciende la muerte",
     "lore": "El inicio para los marcados por Caín: morada del pensamiento alquímico, trascendente a la muerte y resplandeciente para los hijos de la eternidad. Entre alambiques y grimorios, Henoc destila secretos que ninguna tumba retiene.",
     "tags": ["alquimia", "eternidad", "arcano"]
+  },
+  {
+    "id": "la-hacienda-del-comodoro",
+    "nickname": "La Hacienda del Comodoro",
+    "realName": "No habrá Colitruces: solo partidas de 'Casas y Humanos'",
+    "address": "Colonia Ex Hacienda San Juan de Dios, Tlalpan, 14387, Ciudad de México",
+    "coordinates": { "lat": 19.286783, "lng": -99.132263 },
+    "category": "hacienda",
+    "image": "images/la-hacienda-del-comodoro.svg",
+    "imageAlt": "Una hacienda señorial de muros encalados donde el Comodoro ejerce su mando",
+    "lore": "Una hacienda señorial de patios amplios bajo el mando del comodoro Kolyn De Trauz, retirado del mar. Su mesa nunca se levanta vacía y sus órdenes no admiten réplica: quien entra a su dominio, brinda y obedece.",
+    "tags": ["hacienda", "banquete", "mando", "mar"]
   }
 ]
