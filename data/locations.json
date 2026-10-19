@@ -72,18 +72,6 @@
     "tags": ["sombras", "volcán", "peligro", "mazmorra"]
   },
   {
-    "id": "cueva-de-la-iniciativa",
-    "nickname": "Cueva de la Iniciativa",
-    "realName": "Donde se lanza el primer dado",
-    "address": "Colonia Buenos Aires, Cuauhtémoc, 06780, Ciudad de México",
-    "coordinates": { "lat": 19.406731, "lng": -99.148257 },
-    "category": "cueva",
-    "image": "images/cueva-de-la-iniciativa.svg",
-    "imageAlt": "Una gruta tenue iluminada por una vela, punto de reunión donde la compañía traza su rumbo",
-    "lore": "El lugar en el que las aventuras comienzan: una gruta tenue donde la compañía se reúne, lanza la iniciativa y traza su rumbo antes de partir hacia lo desconocido.",
-    "tags": ["inicio", "reunión", "aventura"]
-  },
-  {
     "id": "la-casa-de-henoc",
     "nickname": "La Casa de Henoc",
     "realName": "Pregunta a Henoc",
